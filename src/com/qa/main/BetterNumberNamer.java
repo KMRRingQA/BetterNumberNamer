@@ -57,15 +57,22 @@ public class BetterNumberNamer {
 		}
 	}
 
-	public int[] splitIntoArray(long Num, int length) {
-		int[] Split = new int[length + 3];
+	public int[] splitIntoArray(long num, int length) {
+		int[] split = new int[length + 3];
 
 		for (long i = 0; i < length; i++) {
-			long digit = (long) ((Num / (Math.pow(10l, i))) % 10l);
+			long digit = num;
+			for (int j = 0; j < i; j++) {
+				digit /= 10;
+			}
+			digit = digit % 10;
+//		long digit = (long) ((Num / (Math.pow(10l, i))) % 10l);
+// 		this does not work as Math.pow works with type double, which is less precise in the mantissa (52 bits) than
+// 		a double (62 bits)
 			int intDigit = (int) digit;
 			int j = (int) i;
-			Split[j] = intDigit;
+			split[j] = intDigit;
 		}
-		return Split;
+		return split;
 	}
 }
