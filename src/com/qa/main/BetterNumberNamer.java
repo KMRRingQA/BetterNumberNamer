@@ -60,12 +60,11 @@ public class BetterNumberNamer {
 	public int[] splitIntoArray(long Num, int length) {
 		int[] Split = new int[length + 3];
 
-		for (int i = 0; i < length; i++) {
-			int digit = (int) ((Num / (Math.pow(10, i))) % 10);
-			Split[i] = digit;
-		}
-		for (int i = length; i < length + 3; i++) {
-			Split[i] = 0;
+		for (long i = 0; i < length; i++) {
+			long digit = (long) ((Num / (Math.pow(10l, i))) % 10l);
+			int intDigit = (int) digit;
+			int j = (int) i;
+			Split[j] = intDigit;
 		}
 		return Split;
 	}

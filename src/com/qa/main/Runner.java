@@ -3,19 +3,19 @@ package com.qa.main;
 public class Runner {
 
 	public static void main(String[] args) {
-		BetterNumberNamer test = new BetterNumberNamer();
-		long Num = 4356555465342621l;
-		int length = (test.howLong(Num));
+		BetterNumberNamer numberNamer = new BetterNumberNamer();
+		long Num = 5055055555311244L;
+		int length = (numberNamer.howLong(Num));
 
 //		System.out.println(length + "\n");
 
-		int[] Split = test.splitIntoArray(Num, length);
+		int[] Split = numberNamer.splitIntoArray(Num, length);
 
-//		for (int i = 0; i < length + 3; i++) {
+//		for (int i = 0; i < length; i++) {
 //			System.out.print(Split[i] + " ");
 //		}
 //		System.out.println("\n");
 
-		test.nameThatNumber(Split, length);
+		numberNamer.nameThatNumber(Split, length);
 	}
 }
