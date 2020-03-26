@@ -2,24 +2,26 @@ package com.qa.main;
 
 public class BetterNumberNamer {
 
-	final String[] unitName = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-			"eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+	final private String[] unitName = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+			"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen",
+			"nineteen" };
 
-	final String[] deciName = { "", "", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+	final private String[] deciName = { "", "", "twenty", "thirty", "fourty", "fifty", "sixty", "seventy", "eighty",
+			"ninety" };
 
-	final String[] powersName = { "", "", "", "thousand", "thousand", "thousand", "million", "million", "million",
-			"billion", "billion", "billion", "trillion", "trillion", "trillion" };
+	final private String[] powersName = { "", "", "", "thousand", "thousand", "thousand", "million", "million",
+			"million", "billion", "billion", "billion", "trillion", "trillion", "trillion", "quadrillion",
+			"quadrillion", "quadrillion", "quintillion", "quintillion", "quintillion", };
 
-	int howLong(int Num) {
+	public int howLong(long Num) {
 		int length = 0;
-		for (int i = 1; i <= Num; i *= 10) {
+		for (long i = 1; i <= Num; i *= 10) {
 			length++;
 		}
 		return length;
-
 	}
 
-	void nameThatNumber(int[] Split, int length) {
+	public void nameThatNumber(int[] Split, int length) {
 		int DigitMultiplier = length / 3 + 1;
 		while (DigitMultiplier > 0) {
 			int units = 3 * DigitMultiplier - 3;
@@ -55,7 +57,7 @@ public class BetterNumberNamer {
 		}
 	}
 
-	int[] splitIntoArray(int Num, int length) {
+	public int[] splitIntoArray(long Num, int length) {
 		int[] Split = new int[length + 3];
 
 		for (int i = 0; i < length; i++) {
@@ -67,5 +69,4 @@ public class BetterNumberNamer {
 		}
 		return Split;
 	}
-
 }

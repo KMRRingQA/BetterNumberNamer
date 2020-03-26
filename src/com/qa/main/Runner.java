@@ -4,7 +4,7 @@ public class Runner {
 
 	public static void main(String[] args) {
 		BetterNumberNamer test = new BetterNumberNamer();
-		int Num = 1860003566;
+		long Num = 1112171112524626211l;
 		int length = (test.howLong(Num));
 
 //		System.out.println(length + "\n");
@@ -12,8 +12,9 @@ public class Runner {
 		int[] Split = test.splitIntoArray(Num, length);
 
 //		for (int i = 0; i < length + 3; i++) {
-//			System.out.println(Split[i]);
+//			System.out.print(Split[i] + " ");
 //		}
+//		System.out.println("\n");
 
 		test.nameThatNumber(Split, length);
 	}
