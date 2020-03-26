@@ -4,7 +4,7 @@ public class Runner {
 
 	public static void main(String[] args) {
 		BetterNumberNamer test = new BetterNumberNamer();
-		long Num = 1112171112524626211l;
+		long Num = 4356555465342621l;
 		int length = (test.howLong(Num));
 
 //		System.out.println(length + "\n");
