@@ -12,7 +12,9 @@ public class BetterNumberNamer {
 	final private String[] powersName = { "", "", "thousand", "million", "billion", "trillion", "quadrillion",
 			"quintillion", "sextillion", "septillion", "octillion", "nonillion", "decillion", "undecillion",
 			"duodecillion", "tredecillion", "quattuordecillion", "quindecillion", "sexdecillion", "septendecillion",
-			"octodecillion", "novemdecillion", "vigintillion" };
+			"octodecillion", "novemdecillion", "vigintillion", "unvigintillion", "duovigintillion", "trevigintillion",
+			"quattuorvigintillion", "quinvigintillion", "sexvigintillion", "septenvigintillion", "octovigintillion",
+			"nonvigintillion", "trigintillion", "untrigintillion", "duotrigintillion" };
 
 	public int[] intToArray(int num) {
 		int[] triplet = new int[3];
