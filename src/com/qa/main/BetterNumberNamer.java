@@ -16,6 +16,41 @@ public class BetterNumberNamer {
 			"quattuorvigintillion", "quinvigintillion", "sexvigintillion", "septenvigintillion", "octovigintillion",
 			"nonvigintillion", "trigintillion", "untrigintillion", "duotrigintillion" };
 
+	public void chunker(String numString) {
+		int length = numString.length();
+		int tripletNumber = 0;
+		String tripletString = "";
+		if (numString.equals("0") || numString.equals("-0")) {
+			System.out.print("zero");
+			return;
+		}
+		if (length > 102) {
+			System.out.print("There is no systematic name for your number.");
+			return;
+		}
+		if (numString.substring(0, 1).equals("-")) {
+			System.out.print("negative ");
+			numString = numString.substring(1, length);
+			length--;
+		}
+		if (length % 3 == 1) {
+			numString = "00" + numString;
+			length += 2;
+		} else if (length % 3 == 2) {
+			numString = "0" + numString;
+			length++;
+		}
+		tripletNumber = length / 3;
+		int initialTripletNumber = tripletNumber;
+		for (int i = 0; i < initialTripletNumber; i++) {
+			tripletString = numString.substring(3 * i, 3 * i + 3);
+			int tripletInt = this.stringToInt(tripletString);
+			int[] tripletArray = this.intToArray(tripletInt);
+			this.nameThatNumber(tripletArray, tripletNumber);
+			tripletNumber--;
+		}
+	}
+
 	public int[] intToArray(int num) {
 		int[] triplet = new int[3];
 
@@ -26,10 +61,9 @@ public class BetterNumberNamer {
 		return triplet;
 	}
 
-	public void nameThatNumber(int[] triplet, int superPower) {
-		int skip = 0;
+	public void nameThatNumber(int[] triplet, int tripletNumber) {
 		if (triplet[2] == 0 && triplet[1] == 0 && triplet[0] == 0) {
-			skip = 1;
+			return;
 		} else if (triplet[2] == 0) {
 			if (triplet[1] < 2) {
 				System.out.print(unitName[triplet[1] * 10 + triplet[0]]);
@@ -48,9 +82,12 @@ public class BetterNumberNamer {
 			System.out
 					.print(unitName[triplet[2]] + " hundred and " + deciName[triplet[1]] + "-" + unitName[triplet[0]]);
 		}
-		if (skip == 0) {
-			System.out.print(" " + powersName[superPower] + " ");
-		}
+		System.out.print(" " + powersName[tripletNumber] + " ");
 
+	}
+
+	public int stringToInt(String tripletString) {
+		int tripletInt = Integer.parseInt(tripletString);
+		return tripletInt;
 	}
 }

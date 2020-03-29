@@ -4,8 +4,8 @@ public class Runner {
 
 	public static void main(String[] args) {
 
-		ChunkCounter chunkCounter = new ChunkCounter();
-		String numString = "-123412341234134";
-		chunkCounter.chunker(numString);
+		BetterNumberNamer numberNamer = new BetterNumberNamer();
+		String numString = "-1000123";
+		numberNamer.chunker(numString);
 	}
 }
