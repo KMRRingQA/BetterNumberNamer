@@ -44,21 +44,10 @@ public class BetterNumberNamer {
 		int initialTripletNumber = tripletNumber;
 		for (int i = 0; i < initialTripletNumber; i++) {
 			tripletString = numString.substring(3 * i, 3 * i + 3);
-			int tripletInt = this.stringToInt(tripletString);
-			int[] tripletArray = this.intToArray(tripletInt);
-			this.nameThatNumber(tripletArray, tripletNumber);
+			int[] tripletIntArray = this.stringToIntArray(tripletString);
+			this.nameThatNumber(tripletIntArray, tripletNumber);
 			tripletNumber--;
 		}
-	}
-
-	public int[] intToArray(int num) {
-		int[] triplet = new int[3];
-
-		for (int i = 0; i < 3; i++) {
-			int digit = num;
-			triplet[i] = (int) (digit / Math.pow(10, i)) % 10;
-		}
-		return triplet;
 	}
 
 	public void nameThatNumber(int[] triplet, int tripletNumber) {
@@ -89,5 +78,15 @@ public class BetterNumberNamer {
 	public int stringToInt(String tripletString) {
 		int tripletInt = Integer.parseInt(tripletString);
 		return tripletInt;
+	}
+
+	public int[] stringToIntArray(String tripletString) {
+		int tripletInt = Integer.parseInt(tripletString);
+		int[] tripletIntArray = new int[3];
+
+		for (int i = 0; i < 3; i++) {
+			tripletIntArray[i] = (int) (tripletInt / Math.pow(10, i)) % 10;
+		}
+		return tripletIntArray;
 	}
 }
